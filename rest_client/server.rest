@@ -1,0 +1,8 @@
+# GET SERVER STATUS
+http://localhost:3000/server/status
+
+###
+http://localhost:3000/pokeinfo/arceus
+
+###
+https://pokeapi.co/api/v2/pokemon/pikachu
