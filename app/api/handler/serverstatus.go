@@ -16,7 +16,9 @@ type serverStatusHandler struct {
 
 // GetStatus - Returns the server status.
 func (h serverStatusHandler) GetStatus(c genContext) error {
-	return c.JSON(http.StatusOK, presenter.HTTPBody(true, map[string]interface{}{
-		"serverStatus": "Antares API Online",
-	}))
+	serverStatus := presenter.ServerStatusPresenter{
+		ServerStatus: "Antares API Online",
+	}
+
+	return c.JSON(http.StatusOK, presenter.HTTPBody(true, serverStatus))
 }

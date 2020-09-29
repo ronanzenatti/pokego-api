@@ -1,0 +1,4 @@
+# GET POKEMON BY NAME
+http://localhost:3000/pokemon/arceus
+###
+https://pokeapi.co/api/v2/pokemon/pikachu

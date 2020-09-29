@@ -1,0 +1,2 @@
+# GET SERVER STATUS
+http://localhost:3000/server/status

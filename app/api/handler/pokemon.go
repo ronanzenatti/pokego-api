@@ -4,9 +4,7 @@ import (
 	"net/http"
 
 	"antares-api/app/api/presenter"
-	"antares-api/app/client/pokeapi"
-
-	"github.com/mitchellh/mapstructure"
+	"antares-api/clients/pokeapi"
 )
 
 var (
@@ -19,10 +17,13 @@ type pokemonHandler struct {
 
 func (h pokemonHandler) GetByName(c genContext) error {
 	pokemonName := c.Param("pokemon")
-	pokeapi := pokeapi.GetPokemon(pokemonName).ToMap()
-	pokemon := presenter.PokemonPresenter{}
+	pokeAPIMap := pokeapi.GetPokemon(pokemonName).ToMap()
 
-	mapstructure.Decode(pokeapi, &pokemon)
+	pokemon := presenter.PokemonPresenter{
+		Name:  pokeAPIMap["Name"].(string),
+		Image: pokeAPIMap["Image"].(map[string]interface{})["DefaultImage"].(string),
+		Types: sliceInterface(pokeAPIMap["Types"].([]pokeapi.PokeTypes)),
+	}
 
 	return c.JSON(http.StatusOK, presenter.HTTPBody(true, pokemon))
 }

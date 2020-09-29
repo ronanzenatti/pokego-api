@@ -20,7 +20,7 @@ func Server() {
 		return handler.ServerStatus.GetStatus(context)
 	})
 
-	e.GET("/pokeinfo/:pokemon", func(context echo.Context) error {
+	e.GET("/pokemon/:pokemon", func(context echo.Context) error {
 		return handler.Pokemon.GetByName(context)
 	})
 
