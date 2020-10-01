@@ -18,3 +18,6 @@ vendor/
 
 ### Go Patch ###
 /Godeps/
+
+# ENV FILE #
+.env
