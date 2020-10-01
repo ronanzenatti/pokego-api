@@ -1,7 +1,6 @@
 #!/bin/bash
 
-rm -rf ./vendor
+sudo rm -rf ./bin
+sudo rm -rf ./vendor
 
 go mod tidy
-
-go mod vendor
