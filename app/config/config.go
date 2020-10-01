@@ -7,8 +7,8 @@ import (
 )
 
 var (
-	// Env - Actual environment (DEV, HOMOL, PROD).
-	Env string
+	// APIEnv - Actual environment (DEV, HOMOL, PROD).
+	APIEnv string
 	// APIPort - API port.
 	APIPort string
 )
@@ -23,7 +23,7 @@ func init() {
 func setEnvValues() {
 	err := false
 
-	Env, err = viper.Get("ENV").(string)
+	APIEnv, err = viper.Get("API_ENV").(string)
 	APIPort, err = viper.Get("API_PORT").(string)
 
 	if !err {

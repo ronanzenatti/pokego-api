@@ -7,5 +7,5 @@ services:
     env_file: 
       - ./.env
     ports:
-      - "3000:3000"
+      - "${API_PORT}:${API_PORT}"
     entrypoint: ./docker_compose_entrypoint.sh
