@@ -1,8 +1,6 @@
 package api
 
 import (
-	"strconv"
-
 	"antares-api/app/api/handler"
 	"antares-api/app/config"
 
@@ -24,5 +22,5 @@ func Server() {
 		return handler.Pokemon.GetByName(context)
 	})
 
-	e.Logger.Fatal(e.Start(":" + strconv.Itoa(config.APIPort)))
+	e.Logger.Fatal(e.Start(":" + config.APIPort))
 }
