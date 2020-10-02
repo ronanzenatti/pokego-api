@@ -1,6 +1,6 @@
 package main
 
-import "antares-api/app/api"
+import "antares-api/api"
 
 func main() {
 	api.Server()
