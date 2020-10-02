@@ -1,7 +1,7 @@
 package api
 
 import (
-	"antares-api/app/api/handler"
+	"antares-api/api/handler"
 	"antares-api/config"
 
 	"github.com/labstack/echo"
