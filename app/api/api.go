@@ -2,7 +2,7 @@ package api
 
 import (
 	"antares-api/app/api/handler"
-	"antares-api/app/config"
+	"antares-api/config"
 
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
