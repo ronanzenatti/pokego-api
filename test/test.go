@@ -36,5 +36,4 @@ func (c context) setRouteTester(path string, paramNames []string, paramValues []
 	if paramValues != nil {
 		c.c.SetParamValues(paramValues...)
 	}
-
 }

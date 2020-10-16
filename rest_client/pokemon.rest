@@ -1,4 +1,4 @@
 # GET POKEMON BY NAME
-http://localhost:3000/pokemon/salamence
+http://localhost:3000/pokemon/pikachu
 ###
 https://pokeapi.co/api/v2/pokemon/pikachu

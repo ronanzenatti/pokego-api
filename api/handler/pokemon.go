@@ -17,7 +17,13 @@ type pokemonHandler struct {
 
 func (h pokemonHandler) GetByName(c genContext) error {
 	pokemonName := c.Param("pokemon")
-	pokeAPIMap := pokeapi.GetPokemon(pokemonName).ToMap()
+	pokeAPI, statusCode := pokeapi.GetPokemon(pokemonName)
+
+	if statusCode == http.StatusNotFound {
+		return c.JSON(http.StatusNotFound, presenter.HTTPBody(false, nil))
+	}
+
+	pokeAPIMap := pokeAPI.ToMap()
 
 	pokemon := presenter.PokemonPresenter{
 		Name:  pokeAPIMap["Name"].(string),

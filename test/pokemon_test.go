@@ -3,30 +3,47 @@ package test
 import (
 	"net/http"
 	"net/http/httptest"
-	"strings"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 )
 
 func TestPokemonGetByName(t *testing.T) {
-	mockJSON := `{"success":true,"data":{"name":"arceus","image":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/493.png","types":[{"slot":1,"type":{"name":"normal"}}]}}`
+	t.Run("Should return 200 when a valid pokemon name is passed", func(t *testing.T) {
+		req := httptest.NewRequest(http.MethodGet, "/", nil)
+		rec := httptest.NewRecorder()
+		c := newContext(req, rec)
+		c.setRouteTester(
+			"/pokeinfo/:pokemon",
+			[]string{
+				"pokemon",
+			},
+			[]string{
+				"arceus",
+			},
+		)
 
-	req := httptest.NewRequest(http.MethodGet, "/", nil)
-	rec := httptest.NewRecorder()
-	c := newContext(req, rec)
-	c.setRouteTester(
-		"/pokeinfo/:pokemon",
-		[]string{
-			"pokemon",
-		},
-		[]string{
-			"arceus",
-		},
-	)
+		if assert.NoError(t, pokemon.GetByName(c.c)) {
+			assert.Equal(t, http.StatusOK, rec.Code)
+		}
+	})
 
-	if assert.NoError(t, pokemon.GetByName(c.c)) {
-		assert.Equal(t, http.StatusOK, rec.Code)
-		assert.Equal(t, mockJSON, strings.TrimSpace(rec.Body.String()))
-	}
+	t.Run("Should return 404 when an invalid pokemon name is passed", func(t *testing.T) {
+		req := httptest.NewRequest(http.MethodGet, "/", nil)
+		rec := httptest.NewRecorder()
+		c := newContext(req, rec)
+		c.setRouteTester(
+			"/pokeinfo/:pokemon",
+			[]string{
+				"pokemon",
+			},
+			[]string{
+				"invalid",
+			},
+		)
+
+		if assert.NoError(t, pokemon.GetByName(c.c)) {
+			assert.Equal(t, http.StatusNotFound, rec.Code)
+		}
+	})
 }
