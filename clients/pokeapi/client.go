@@ -5,11 +5,13 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+
+	"antares-api/config"
 )
 
 // GetPokemon - Get one pokemon from PokeAPI by name.
 func GetPokemon(search string) (Presenter, int) {
-	resp, err := http.Get(pokeAPIBaseURL + "pokemon/" + search)
+	resp, err := http.Get(config.PokeAPIBaseURL + "pokemon/" + search)
 	if err != nil {
 		log.Panic(err)
 	}
