@@ -1,2 +1,5 @@
 # GET SERVER STATUS
 http://localhost:3000/server/status
+###
+
+https://powerful-spire-51149.herokuapp.com/server/status

@@ -1,4 +1,6 @@
 # GET POKEMON BY NAME
 http://localhost:3000/pokemon/pikachu
 ###
+https://powerful-spire-51149.herokuapp.com/pokemon/gengar
+###
 https://pokeapi.co/api/v2/pokemon/pikachu
