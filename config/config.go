@@ -26,9 +26,16 @@ func setEnvValues() {
 	err := false
 
 	APIEnv, err = viper.Get("API_ENV").(string)
-	APIPort, err = viper.Get("API_PORT").(string)
-	PokeAPIBaseURL, err = viper.Get("POKEAPI_BASE_URL").(string)
+	if !err {
+		log.Fatal("Environment variables are not completely defined.")
+	}
 
+	APIPort, err = viper.Get("API_PORT").(string)
+	if !err {
+		log.Fatal("Environment variables are not completely defined.")
+	}
+
+	PokeAPIBaseURL, err = viper.Get("POKEAPI_BASE_URL").(string)
 	if !err {
 		log.Fatal("Environment variables are not completely defined.")
 	}
