@@ -1,8 +1,8 @@
 package config
 
 import (
-	"fmt"
 	"log"
+	"os"
 
 	"github.com/spf13/viper"
 )
@@ -17,37 +17,37 @@ var (
 )
 
 func init() {
-	// viper.SetConfigFile(".env")
-	// viper.ReadInConfig()
+	viper.SetConfigFile(".env")
+	hasEnvFile := viper.ReadInConfig()
+
+	if hasEnvFile != nil {
+		setEnvVarFromOS()
+	}
 
 	setEnvValues()
+}
+
+func setEnvVarFromOS() {
+	viper.SetDefault("API_ENV", os.Getenv("API_ENV"))
+	viper.SetDefault("API_PORT", os.Getenv("API_PORT"))
+	viper.SetDefault("POKEAPI_BASE_URL", os.Getenv("POKEAPI_BASE_URL"))
 }
 
 func setEnvValues() {
 	err := false
 
 	APIEnv, err = viper.Get("API_ENV").(string)
-	fmt.Println(APIEnv)
-	// // if !err {
-	// // 	log.Fatal("Environment variables are not completely defined.")
-	// // }
-
-	APIPort, err = viper.Get("API_PORT").(string)
-	fmt.Println(APIPort)
-	// // if !err {
-	// // 	log.Fatal("Environment variables are not completely defined.")
-	// // }
-
-	PokeAPIBaseURL, err = viper.Get("POKEAPI_BASE_URL").(string)
-	log.Fatalln(PokeAPIBaseURL)
-	// // if !err {
-	// // 	log.Fatal("Environment variables are not completely defined.")
-	// // }
-
-	if err {
+	if !err {
+		log.Fatal("Environment variables are not completely defined.")
 	}
 
-	// fmt.Println(os.Getenv("API_ENV"))
-	// fmt.Println(os.Getenv("API_PORT"))
-	// fmt.Println(os.Getenv("POKEAPI_BASE_URL"))
+	APIPort, err = viper.Get("API_PORT").(string)
+	if !err {
+		log.Fatal("Environment variables are not completely defined.")
+	}
+
+	PokeAPIBaseURL, err = viper.Get("POKEAPI_BASE_URL").(string)
+	if !err {
+		log.Fatal("Environment variables are not completely defined.")
+	}
 }
