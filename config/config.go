@@ -29,7 +29,7 @@ func init() {
 
 func setEnvVarFromOS() {
 	viper.SetDefault("API_ENV", os.Getenv("API_ENV"))
-	viper.SetDefault("API_PORT", os.Getenv("API_PORT"))
+	viper.SetDefault("API_PORT", os.Getenv("PORT"))
 	viper.SetDefault("POKEAPI_BASE_URL", os.Getenv("POKEAPI_BASE_URL"))
 }
 
