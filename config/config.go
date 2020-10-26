@@ -1,7 +1,7 @@
 package config
 
 import (
-	"log"
+	"fmt"
 
 	"github.com/spf13/viper"
 )
@@ -26,17 +26,23 @@ func setEnvValues() {
 	err := false
 
 	APIEnv, err = viper.Get("API_ENV").(string)
-	if !err {
-		log.Fatal("Environment variables are not completely defined.")
-	}
+	fmt.Println(APIEnv)
+	// if !err {
+	// 	log.Fatal("Environment variables are not completely defined.")
+	// }
 
 	APIPort, err = viper.Get("API_PORT").(string)
-	if !err {
-		log.Fatal("Environment variables are not completely defined.")
-	}
+	fmt.Println(APIPort)
+	// if !err {
+	// 	log.Fatal("Environment variables are not completely defined.")
+	// }
 
 	PokeAPIBaseURL, err = viper.Get("POKEAPI_BASE_URL").(string)
-	if !err {
-		log.Fatal("Environment variables are not completely defined.")
+	fmt.Println(PokeAPIBaseURL)
+	// if !err {
+	// 	log.Fatal("Environment variables are not completely defined.")
+	// }
+
+	if err {
 	}
 }
