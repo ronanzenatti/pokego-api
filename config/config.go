@@ -12,6 +12,7 @@ type Configurations struct {
 	Server  ServerConfigurations  `json:"server"`
 	PokeAPI PokeAPIConfigurations `json:"pokeAPI"`
 	PORT    string
+	BATATA  string `mapstructure:"PORT"`
 }
 
 // ServerConfigurations - Server configurations.
