@@ -11,7 +11,7 @@ type Configurations struct {
 	Env     string                `json:"env"`
 	Server  ServerConfigurations  `json:"server"`
 	PokeAPI PokeAPIConfigurations `json:"pokeAPI"`
-	PORT    int                   `mapstructure:"PORT"`
+	PORT    string
 }
 
 // ServerConfigurations - Server configurations.
