@@ -17,7 +17,7 @@ type Configurations struct {
 
 // ServerConfigurations - Server configurations.
 type ServerConfigurations struct {
-	Port string `json:"port"`
+	Port string `mapstructure:"PORT"`
 }
 
 // PokeAPIConfigurations - Poke API configurations.
@@ -29,7 +29,7 @@ type PokeAPIConfigurations struct {
 var Config Configurations
 
 func init() {
-	viper.SetConfigFile("config.json")
+	viper.SetConfigFile(".env")
 	viper.AutomaticEnv()
 	viper.ReadInConfig()
 
