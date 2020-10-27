@@ -22,5 +22,5 @@ func Server() {
 		return handler.Pokemon.GetByName(context)
 	})
 
-	e.Logger.Fatal(e.Start(":" + config.Config.PORT))
+	e.Logger.Fatal(e.Start(":" + config.Config.APIPort))
 }
