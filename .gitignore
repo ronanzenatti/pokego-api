@@ -20,4 +20,4 @@ vendor/
 /Godeps/
 
 # CONFIG FILE #
-config.json
+.env
