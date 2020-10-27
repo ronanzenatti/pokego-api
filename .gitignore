@@ -19,5 +19,5 @@ vendor/
 ### Go Patch ###
 /Godeps/
 
-# CONFIG FILE #
+# ENV FILE #
 .env
