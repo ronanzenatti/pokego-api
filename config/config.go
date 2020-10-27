@@ -2,7 +2,6 @@ package config
 
 import (
 	"log"
-	"os"
 
 	"github.com/spf13/viper"
 )
@@ -18,20 +17,17 @@ var (
 
 func init() {
 	viper.SetConfigFile(".env")
-	hasEnvFile := viper.ReadInConfig()
-
-	if hasEnvFile != nil {
-		setEnvVarFromOS()
-	}
+	viper.AutomaticEnv()
+	viper.ReadInConfig()
 
 	setEnvValues()
 }
 
-func setEnvVarFromOS() {
-	viper.SetDefault("API_ENV", os.Getenv("API_ENV"))
-	viper.SetDefault("API_PORT", os.Getenv("PORT"))
-	viper.SetDefault("POKEAPI_BASE_URL", os.Getenv("POKEAPI_BASE_URL"))
-}
+// func setEnvVarFromOS() {
+// 	viper.SetDefault("API_ENV", os.Getenv("API_ENV"))
+// 	viper.SetDefault("API_PORT", os.Getenv("PORT"))
+// 	viper.SetDefault("POKEAPI_BASE_URL", os.Getenv("POKEAPI_BASE_URL"))
+// }
 
 func setEnvValues() {
 	err := false
