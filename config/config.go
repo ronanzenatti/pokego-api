@@ -1,49 +1,33 @@
 package config
 
 import (
-	"log"
-
 	"github.com/spf13/viper"
 )
 
-var (
-	// APIEnv - Actual environment (DEV, HOMOL, PROD).
-	APIEnv string
-	// APIPort - API port.
-	APIPort string
-	// PokeAPIBaseURL -  PokeAPI base url.
-	PokeAPIBaseURL string
-)
+// Configurations - APP configurations.
+type Configurations struct {
+	Env     string                `json:"env"`
+	Server  ServerConfigurations  `json:"server"`
+	PokeAPI PokeAPIConfigurations `json:"pokeAPI"`
+}
+
+// ServerConfigurations - Server configurations.
+type ServerConfigurations struct {
+	Port string `json:"port"`
+}
+
+// PokeAPIConfigurations - Poke API configurations.
+type PokeAPIConfigurations struct {
+	BaseURL string `json:"baseURL"`
+}
+
+// Config - Exported configurations.
+var Config Configurations
 
 func init() {
-	viper.SetConfigFile(".env")
+	viper.SetConfigFile("config.json")
 	viper.AutomaticEnv()
 	viper.ReadInConfig()
 
-	setEnvValues()
-}
-
-// func setEnvVarFromOS() {
-// 	viper.SetDefault("API_ENV", os.Getenv("API_ENV"))
-// 	viper.SetDefault("API_PORT", os.Getenv("PORT"))
-// 	viper.SetDefault("POKEAPI_BASE_URL", os.Getenv("POKEAPI_BASE_URL"))
-// }
-
-func setEnvValues() {
-	err := false
-
-	APIEnv, err = viper.Get("API_ENV").(string)
-	if !err {
-		log.Fatal("Environment variables are not completely defined.")
-	}
-
-	APIPort, err = viper.Get("PORT").(string)
-	if !err {
-		log.Fatal("Environment variables are not completely defined.")
-	}
-
-	PokeAPIBaseURL, err = viper.Get("POKEAPI_BASE_URL").(string)
-	if !err {
-		log.Fatal("Environment variables are not completely defined.")
-	}
+	viper.Unmarshal(&Config)
 }
