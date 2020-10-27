@@ -37,7 +37,7 @@ func setEnvValues() {
 		log.Fatal("Environment variables are not completely defined.")
 	}
 
-	APIPort, err = viper.Get("API_PORT").(string)
+	APIPort, err = viper.Get("PORT").(string)
 	if !err {
 		log.Fatal("Environment variables are not completely defined.")
 	}
