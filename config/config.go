@@ -11,7 +11,7 @@ type Configurations struct {
 	Env     string                `json:"env"`
 	Server  ServerConfigurations  `json:"server"`
 	PokeAPI PokeAPIConfigurations `json:"pokeAPI"`
-	PORT    string                `mapstructure:"PORT"`
+	PORT    int                   `mapstructure:"PORT"`
 }
 
 // ServerConfigurations - Server configurations.
@@ -31,6 +31,8 @@ func init() {
 	viper.SetConfigFile("config.json")
 	viper.AutomaticEnv()
 	viper.ReadInConfig()
+
+	viper.BindEnv("PORT")
 
 	viper.Unmarshal(&Config)
 
