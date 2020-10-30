@@ -14,9 +14,37 @@ With Golang, there are two ways to run the API: simply by compiling with Golang 
 ### **Simply compiling natively**
 
 **Requisites:** 
-* Go 1.15+
+* [Go 1.15+](https://golang.org/)
 
 **Steps:**
 1. Clone this repo.
 2. CD at the root of the project.
-3. Run:  `go mod vendor`
+3. Run:  `go mod vendor`.
+4. Create a `.env` file using `.env.example` as example.
+5. Run:  `go run main.go`.
+
+### **Using Air package**
+
+**Requisites:**
+* [Go 1.15+](https://golang.org/)
+* [Air package](https://github.com/cosmtrek/air)
+
+**Steps:**
+1. Clone this repo.
+2. CD at the root of the project.
+3. Run:  `go mod vendor`.
+4. Create a `.env` file using `.env.example` as example.
+5. Run: `air -c .air.toml`.
+
+## Without Golang
+--------------
+
+Without Golang, there are one way to run the API: through the docker.
+
+**Requisites:** 
+* [Docker](https://www.docker.com/)
+
+**Steps:**
+1. Clone this repo.
+2. CD at the root of the project.
+3. Run: `docker-compose up`.
