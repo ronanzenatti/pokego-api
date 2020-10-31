@@ -1,4 +1,4 @@
-# ANTARES-API
+# POKEGO-API
 
 Is an example API made entirely in Golang using the Echo framework.
 
