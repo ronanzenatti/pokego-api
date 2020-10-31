@@ -1,7 +1,7 @@
 package main
 
 import (
-	"antares-api/api"
+	"pokego-api/api"
 )
 
 func main() {

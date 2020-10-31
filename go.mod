@@ -1,4 +1,4 @@
-module antares-api
+module pokego-api
 
 // +heroku goVersion go1.15.2
 go 1.15

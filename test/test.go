@@ -3,7 +3,7 @@ package test
 import (
 	"net/http"
 
-	"antares-api/api/handler"
+	"pokego-api/api/handler"
 
 	"github.com/labstack/echo"
 )

@@ -1,6 +1,6 @@
 package pokeapi
 
-import "antares-api/pkg/convert"
+import "pokego-api/pkg/convert"
 
 // Presenter - Pokemon struct for visualization.
 type Presenter struct {

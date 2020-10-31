@@ -1,8 +1,8 @@
 package api
 
 import (
-	"antares-api/api/handler"
-	"antares-api/config"
+	"pokego-api/api/handler"
+	"pokego-api/config"
 
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"

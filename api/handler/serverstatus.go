@@ -3,7 +3,7 @@ package handler
 import (
 	"net/http"
 
-	"antares-api/api/presenter"
+	"pokego-api/api/presenter"
 )
 
 var (

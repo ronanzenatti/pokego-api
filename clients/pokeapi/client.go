@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 
-	"antares-api/config"
+	"pokego-api/config"
 )
 
 // GetPokemon - Get one pokemon from PokeAPI by name.
