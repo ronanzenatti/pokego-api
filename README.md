@@ -7,7 +7,6 @@ Is an example API made entirely in Golang using the Echo framework.
 There are 2 ways available to install and run this project: with Golang installed and without Golang installed.
 
 ## With Golang
---------------
 
 With Golang, there are two ways to run the API: simply by compiling with Golang or via the Air package.
 
@@ -36,8 +35,9 @@ With Golang, there are two ways to run the API: simply by compiling with Golang 
 4. Create a `.env` file using `.env.example` as example.
 5. Run: `air -c .air.toml`.
 
-## Without Golang
 --------------
+
+## Without Golang
 
 Without Golang, there are one way to run the API: through the docker.
 
