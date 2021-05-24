@@ -1,4 +1,4 @@
-# POKEGO-API
+# POKEGO-API - AGORA É DO TIO RONAN
 
 Is an example API made entirely in Golang using the Echo framework.
 
